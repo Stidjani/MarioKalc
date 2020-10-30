@@ -1,0 +1,299 @@
+<html>
+	<head>
+		<title>Image Gallery</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script type="text/javascript" src="js/PapaParse/papaparse.min.js"></script>
+		
+	</head>
+	<body> 
+		<div id="container">
+			<div id="logo">
+				<img src="img/logo.png">
+			</div>
+
+			<!--================================================================================================== -->
+			<!-- NAVIGATION -->
+			<!--================================================================================================== -->
+
+			<nav>
+				<ul>
+					<li><a href="#sectionCharacters">Characters</a></li>
+					<li><a href="#sectionVehicles">Karts</a></li>
+					<li><a href="#subBikes">Bikes</a></li>
+					<li><a href="#subATVs">ATVs</a></li>
+					<li><a href="#sectionTires">Tires</a></li>
+					<li><a href="#sectionGliders">Gliders</a></li>
+				</ul>
+			</nav>
+
+			<!--================================================================================================== -->
+			<!-- VIDEO BANNER -->
+			<!--================================================================================================== -->
+
+			<div id="videoBanner">
+				<iframe src="https://www.youtube.com/embed/mU7tXqYplA8?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=mU7tXqYplA8" 
+				frameborder="0" allow="accelerometer; modestbranding; autoplay; clipboard-write; encrypted-media; gyroscope; 
+				picture-in-picture" allowfullscreen></iframe>
+			</div>
+
+			<!--================================================================================================== -->
+			<!-- MODALS -->
+			<!--================================================================================================== -->
+
+			<div id="charInfoModal" class="modal">
+				<div class="modal-content">
+					<span id="closeCharModal" class="close">&times;</span>
+					<img id="modalCharImg"/>
+					<p class="modalName"><span id="modalCharName"></span></p>
+					<p class="modalDesc"><span id="modalCharAvail"></span> (at game start)</p>
+					<hr>
+					<div class="modalStatSection">
+						<p class="modalNotes">All numeric values are out of 6 pts</p>
+						<p class="modalStatP">Weight Class <span id="modalCharClass" class="modalStat"></span></p>
+						<p class="modalStatP">Weight <span id="modalCharWeight" class="modalStat"></span></p>
+						<p class="modalStatP">Speed <span id="modalCharSpeed" class="modalStat"></span></p>
+						<p class="modalStatP">Acceleration <span id="modalCharAccel" class="modalStat"></span></p>
+						<p class="modalStatP">Handling <span id="modalCharHandling" class="modalStat"></span></p>
+						<p class="modalStatP">Traction <span id="modalCharTraction" class="modalStat"></span></p>
+						<p id="charTurbo" class="modalStatP">Mini Turbo <span id="modalCharTurbo" class="modalStat"></span></p>	
+					</div>		
+				</div>
+						
+			</div>
+
+			<div id="vehicleInfoModal" class="modal">
+				<div class="modal-content">
+					<span id="closeVehicleModal" class="close">&times;</span>
+					<img id="modalVehicleImg"/>
+					<p class="modalName"><span id="modalVehicleName"></span></p>
+					<p class="modalDesc">Vehicle Type: <span id="modalVehicleType"></span></p>
+					<hr>
+					<div class="modalStatSection">
+						<p class="modalNotes">All numbers represent the point values that will be added to or subtracted from a 
+							character's stats when this vehicle is chosen.</p>
+						<p class="modalStatP">Weight: <span id="modalVehicleWeight" class="modalStat"></span></p>
+						<p class="modalStatP">Speed: <span id="modalVehicleSpeed" class="modalStat"></span></p>
+						<p class="modalStatP">Acceleration: <span id="modalVehicleAccel" class="modalStat"></span></p>
+						<p class="modalStatP">Handling: <span id="modalVehicleHandling" class="modalStat"></span></p>
+						<p class="modalStatP">Traction: <span id="modalVehicleTraction" class="modalStat"></span></p>
+						<p class="modalStatP">Mini Turbo: <span id="modalVehicleTurbo" class="modalStat"></span></p>
+					</div>					
+				</div>
+			</div>
+
+			<div id="tireInfoModal" class="modal">
+				<div class="modal-content">
+					<span id="closeTireModal" class="close">&times;</span>
+					<img id="modalTireImg"/>
+					<p class="modalName"><span id="modalTireName"></span></p>
+					<hr>
+					<div class="modalStatSection">
+						<p class="modalNotes">All numbers represent the point values that will be added to or subtracted from a 
+							character's stats when this tire is chosen.</p>
+						<p class="modalStatP">Weight: <span id="modalTireWeight" class="modalStat"></span></p>
+						<p class="modalStatP">Speed: <span id="modalTireSpeed" class="modalStat"></span></p>
+						<p class="modalStatP">Acceleration: <span id="modalTireAccel" class="modalStat"></span></p>
+						<p class="modalStatP">Handling: <span id="modalTireHandling" class="modalStat"></span></p>
+						<p class="modalStatP">Traction: <span id="modalTireTraction" class="modalStat"></span></p>
+						<p class="modalStatP">Mini Turbo: <span id="modalTireTurbo" class="modalStat"></span></p>	
+					</div>	
+				</div>		
+			</div>
+
+			<div id="gliderInfoModal" class="modal">
+				<div class="modal-content">
+					<span id="closeGliderModal" class="close">&times;</span>
+					<img id="modalGliderImg"/>
+					<p class="modalName"><span id="modalGliderName"></span></p>
+					<hr>
+					<div class="modalStatSection">
+						<p class="modalNotes">All numbers represent the point values that will be added to or subtracted from a 
+							character's stats when this glider is chosen.</p>
+						<p class="modalStatP">Weight: <span id="modalGliderWeight" class="modalStat"></span></p>
+						<p class="modalStatP">Speed: <span id="modalGliderSpeed" class="modalStat"></span></p>
+						<p class="modalStatP">Acceleration: <span id="modalGliderAccel" class="modalStat"></span></p>
+						<p class="modalStatP">Handling: <span id="modalGliderHandling" class="modalStat"></span></p>
+						<p class="modalStatP">Traction: <span id="modalGliderTraction" class="modalStat"></span></p>
+						<p class="modalStatP">Mini Turbo: <span id="modalGliderTurbo" class="modalStat"></span></p>	
+					</div>	
+				</div>		
+			</div>
+
+			<!--================================================================================================== -->
+			<!-- CARD SECTIONS -->
+			<!--================================================================================================== -->
+			<div id="content">
+				<button class="btnShowCalcForm">CALCULATE NOW</button>
+				<!-- Character Section -->
+				<div id="sectionCharacters" class="section">
+					<h1>CHARACTERS</h1>
+				</div>
+
+				<!-- Vehicle Section -->
+				<div id="sectionVehicles" class="section">
+					<h1>VEHICLES</h1>
+					<div id="subKarts" class="section">
+						<h2>KARTS</h2>
+					</div>
+					<div id="subBikes" class="section">
+						<h2>BIKES</h2>
+					</div>
+					<div id="subATVs" class="section">
+						<h2>ATVs</h2>
+					</div>			
+				</div>
+
+				<!-- Tire Section -->
+				<div id="sectionTires"class="section">
+					<h1>TIRES</h1>
+				</div>
+				
+				<!-- Glider Section -->
+				<div id="sectionGliders" class="section">
+					<h1>GLIDERS</h1>
+				</div>
+			</div>
+			
+			<!--================================================================================================== -->
+			<!-- CALCULATOR FORM -->
+			<!--================================================================================================== -->
+
+			<div id="calcForm" class="modal">
+				<div class="modal-content">
+					<span id="closeCalcForm" class="close">&times;</span>
+					<h1>Mario Kalculator</h1>
+					<!-- Progress Bar -->
+					<div class="progress-bar">
+						<div class="step">
+							<p>Characterize</p>
+							<div class="bullet">
+								<span>1</span>
+								<div class="check fas fa-check"></div>
+							</div>
+						</div>
+						<div class="step">
+							<p>Optimize</p>
+							<div class="bullet">
+								<span>2</span>
+								<div class="check fas fa-check"></div>
+							</div>
+						</div>
+						<div class="step">
+							<p>Finalize</p>
+							<div class="bullet">
+								<span>3</span>
+								<div class="check fas fa-check"></div>
+							</div>
+						</div>
+					</div>
+					<div id="formWrapper" class="form-wrapper">
+						<form id="form" class="form" action="#" style="left:0">
+							<div class="page">
+								<h2>Characterize</h2>
+								<p>Choose your character.</p>
+								<label for="ddlCharacters">Character:</label>
+								<select id="ddlCharacters" name="ddlCharacters"></select>
+							</div>
+							<div class="page">
+								<h2>Optimize</h2>
+								<p>Select a factor to optimize by.</p>
+								<div class="rbListOptVar">
+									<div>
+										<input type="radio" id="speed" name="rbListOptVar" value="speed" checked>
+										<label for="speed">Speed</label>
+									</div>
+									<div>
+										<input type="radio" id="accel" name="rbListOptVar" value="accel">
+										<label for="accel">Acceleration</label>
+									</div>
+								</div>
+							</div>
+							<div class="page">
+								<h2>Finalize</h2>
+								<p>
+									Do you want to restrict your vehicle options to a specific type (i.e. bikes only)?
+								</p>
+								<div class="rbRestrictionList">
+									<div>
+										<input type="radio" id="yes" name="rbRestriction" value="1" onchange="rbRestrictionsChange(value)">
+										<label for="yes">Yes</label>
+									</div>
+									<div>
+										<input type="radio" id="no" name="rbRestriction" value="0" onchange="rbRestrictionsChange(value)" checked>
+										<label for="no">No</label>
+									</div>
+								</div>
+								<div id="divVehicleTypes">
+									<label for="ddlVehicleTypes">Restrict vehicles to: </label>
+									<select id="ddlVehicleTypes" name="ddlVehicleTypes">
+										<option>Karts</option>
+										<option>Bikes</option>
+										<option>ATVs</option>
+									</select>
+								</div>
+							</div>
+						</form>
+						<!-- todo: remove -->
+						<div id="results" style="display:none;">
+							<h2>Check Out Your Results!</h2>
+							<p id="resultsDesc">
+								Because of <span class="charName"></span>'s weight, <span class="charName"></span>
+								can reach a maximum top <span class="optimizeVar"></span> level of
+								<span class="maxStat"></span> / 6. Any of the following vehicles, tires, and
+								gliders will maximize <span class="charName"></span>'s <span class="optimizeVar"></span> level.
+							</p>
+							<p id="resultsDescRestr">
+								Because of <span class="charName"></span>'s weight, <span class="charName"></span>
+								can reach a maximum top <span class="optimizeVar"></span> level of
+								<span class="maxStat"></span> / 6. Restricting vehicle types to
+								<span class="vehicleType"></span> means <span class="charName"></span> can reach
+								a maximum top <span class="optimizeVar"></span> level of
+								<span class="maxStatRestr"></span> / 6. Any of the following <span class="vehicleType"></span>,
+								tires, and gliders will maximize <span class="charName"></span>'s
+								<span class="optimizeVar"></span> level.
+							</p>
+							<div class="resultsCol">
+								<h3 id="resultsVehicleHeader">VEHICLES</h3>
+								<p>
+									<span class="optimizeVar"></span> = <span class="vehicleStat"></span>
+								</p>
+								<p id="resultsVehicles"></p>
+							</div>
+							<div class="resultsCol">
+								<h3>TIRES</h3>
+								<p>
+									<span class="optimizeVar"></span> = <span class="tireStat"></span>
+								</p>
+								<p id="resultsTires"></p>
+							</div>
+							<div class="resultsCol">
+								<h3>GLIDERS</h3>
+								<p>
+									<span class="optimizeVar"></span> = <span class="gliderStat"></span>
+								</p>
+								<p id="resultsGliders"></p>
+							</div>
+						</div>
+					</div>
+					<!-- Form Buttons -->
+					<div class="form-btns">
+						<button id="btnPrev" class="btn">Previous</button>
+						<button id="btnNext" class="btn">Next</button>
+						<button id="btnSubmit" class="btn" onclick="showResults()">Show Results</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--================================================================================================== -->
+		<!-- SCRIPTS -->
+		<!--================================================================================================== -->
+		<script type="text/javascript" src="js/characters.js"></script>
+		<script type="text/javascript" src="js/vehicles.js"></script>
+		<script type="text/javascript" src="js/tires.js"></script>
+		<script type="text/javascript" src="js/gliders.js"></script>
+		<script type="text/javascript" src='js/index.js'></script>
+		<script type="text/javascript" src='js/calculatorHelpers.js'></script>		
+		<script type="text/javascript" src='js/calculatorForm.js'></script>
+	</body>
+</html>
